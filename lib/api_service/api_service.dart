@@ -8,13 +8,8 @@ class ApiService{
 
   static Future<List<Products>> getProducts() async{
     try{
-
       final response = await dio.get(Api.url);
-
-
       List temp = (response.data).map((e) => e).toList();
-
-
       return (temp)
           .map((e) => Products.fromApi(e))
           .toList();
@@ -29,11 +24,7 @@ class ApiService{
     try{
 
       final response = await dio.get('${Api.jwellery}$specific');
-
-
       List temp = (response.data).map((e) => e).toList();
-
-
       return (temp)
           .map((e) => Products.fromApi(e))
           .toList();
@@ -52,15 +43,11 @@ class AllCateService{
     try{
 
       final response = await dio.get(Api.allCate);
-
-
       List temp = response.data;
 
       print(temp);
 
       return temp;
-
-
     }
     on DioException catch (err){
       throw '${err.response}';
